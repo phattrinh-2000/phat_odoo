@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="sinh_vien_stage_view_form" model="ir.ui.view">
+            <field name="name">sinh.vien.stage.form</field>
+            <field name="model">sinh.vien.stage</field>
+            <field name="arch" type="xml">
+                <form string="Sinh Vien Form">
+                    <sheet>
+                        <div class="custom_header">
+                            <img src="/phat_sale/static/description/ahu.png" alt="Header Logo"/>
+                        </div>
+                        <group>
+                            <field name="stage_id" widget="selection"/>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="lop"/>
+                                <field name="gender"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="day_of_birth"/>
+                                <field name="height"/>
+                                <field name="weight"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Bang Diem">
+                                <field name="subjects">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="grade"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="custom_footer">
+                          <img src="/phat_sale/static/description/ahu.png" alt="Footer Logo"/>
+                        Sinh Vien Form Footer
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="sinh_vien_stage_view_tree" model="ir.ui.view">
+            <field name="name">sinh.vien.tree</field>
+            <field name="model">sinh.vien</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="lop"/>
+                    <field name="gender"/>
+                    <field name="age"/>
+                    <field name="height"/>
+                    <field name="weight"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sinh_vien_view_action" model="ir.actions.act_window">
+            <field name="name">Sinh Vien</field>
+            <field name="res_model">sinh.vien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sinh_vien_menu" name="Sinh Vien" web_icon="sale_phat,static/description/icon.png" sequence="1"/>
+        <menuitem id="sinh_vien_sub_menu" parent="sinh_vien_menu" action="sinh_vien_view_action" name="Sinh Vien"/>
+    </data>
+</odoo>
